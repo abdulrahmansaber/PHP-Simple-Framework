@@ -1,0 +1,206 @@
+
+// Fonts & Required files
+@import url('https://fonts.googleapis.com/css?family=Changa:800|Open+Sans|Krub|Mali|Quicksand|Roboto+Slab|Source+Sans+Pro');
+@import '_colors';
+
+// All Elements
+* {
+  outline: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+// Body
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+// Headings
+h1 { font-size: 3.8rem; margin: 7px 0; }
+h2 { font-size: 3.3rem; margin: 7px 0; }
+h3 { font-size: 2.8rem; margin: 7px 0; }
+h4 { font-size: 2.4rem; margin: 7px 0; }
+h5 { font-size: 1.5rem; margin: 7px 0; }
+h6 { font-size: 1.2rem; margin: 7px 0; }
+
+// Pargraphs
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 22px;
+  margin: 7px;
+}
+p.small-pa { font-size: 16px; }
+
+// Buttons
+button {
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  margin: 10px 4px;
+  font-size: 11px;
+  padding: 10px 25px;
+  background-color: $teal-dark;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #FFF;
+  transition: .4s;
+}
+// Default button
+.default-btn {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #444;
+  padding: 10px 25px;
+  &:hover {
+    background-color: $silver-dark;
+  }
+}
+.green {
+  background-color: $green-light;
+  &:hover { background-color: $green-dark; }
+}
+.blue {
+  background-color: $blue-light;
+  &:hover { background-color: $blue-dark; }
+}
+.purple {
+  background-color: $purple-light;
+  &:hover { background-color: $purple-dark; }
+}
+.wet {
+  background-color: $wet-light;
+  &:hover { background-color: $wet-dark; }
+}
+.orange {
+  background-color: $orange-light;
+  &:hover { background-color: $orange-dark; }
+}
+.yellow {
+  background-color: $yellow-light;
+  &:hover { background-color: $yellow-dark; }
+}
+
+// Link
+a { color: $blue-light; text-decoration: none; }
+
+// Navbar
+.navbar-top {
+  padding: 0 45px;
+  display: flex;
+  background-color: $wet-dark;
+  box-shadow: -1px 1px 10px black;
+  .navbar-title {
+    font-size: 1.7rem;
+    padding: 0;
+    color: #FFF;
+    font-weight: lighter;
+    a {
+      color: #FFF;
+      vertical-align: top;
+    }
+    img {
+      width: 35px;
+      height: 35px;
+      margin-right: 7px;
+    }
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    margin-left: 40px;
+    li {
+      a {
+        color: #ececec;
+        display: inline-block;
+        padding: 17px 15px;
+        text-decoration: none;
+        transition: .3s;
+        &:hover { background-color: $wet-light; }
+      }
+    }
+  }
+  ul.list-right { position: absolute; right: 45px; }
+}
+
+// Helpers classes
+.container {
+  width: 1120px;
+  margin: auto;
+}
+
+// Forms and fields
+form {
+  margin: 15px;
+  input:not([type='checkbox']), textarea, select {
+    padding: 8px 15px;
+    border: 1px solid #e1dada;
+    border-radius: 3px;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    margin-bottom: 8px;
+    &:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+  }
+  textarea { height: 100px; resize: none; }
+  button {
+    margin: 0;
+  }
+}
+
+// Our Grid System
+$grid: 12;
+@for $i from 1 through $grid {
+  .col-#{$i} {
+    float: left;
+    margin: 15px 0;
+    padding: 15px;
+    width: (100% / ( $grid / $i )) !important;
+  }
+}
+
+// Models & popups
+.overlay-models { // overlay
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.model {
+  width: 65%;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0px 13px 20px 3px #aaa9a9;
+  position: fixed;
+  left: 50%;
+  top: -200%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  .model-header,
+  .model-content,
+  .model-footer {
+    padding: 15px 25px;
+    z-index: 9999;
+    position: relative;
+  }
+  // Model Header
+  .model-header, .model-footer {
+    background-color: #f1f1f1;
+    padding: 8px 25px;
+    .close-model {
+      position: absolute;
+      z-index: 9999;
+      right: 25px;
+      top: 0;
+    }
+  }
+}
